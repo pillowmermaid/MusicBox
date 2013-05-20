@@ -1,12 +1,17 @@
 package com.supersring.musicbox;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GraphicsConfiguration;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 /**
@@ -49,14 +54,22 @@ public class MBFrame extends JFrame {
         this.setLayout(borderLayout);
 
         //Create and add background
-        final JPanel background = new JPanel();
-        final Dimension bgSize = new Dimension(500,500);
+        final JPanel background = new JPanel(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        final Dimension bgSize = new Dimension(340, 340);
         background.setPreferredSize(bgSize);
-        background.setBackground(Color.black);
+//        background.setBackground(Color.black);
         this.add(background, BorderLayout.CENTER);
-        
-        //Create a menu
-        final JMenu jmenu = new JMenu("PUT OPTIONS HERE?");
-        this.add(jmenu, BorderLayout.NORTH);
+
+        //Create and add a canvas to JPanel
+        MBCanvas mbCanvas = new MBCanvas();
+        mbCanvas.setPreferredSize(bgSize);
+        c.gridx = 1;
+        c.gridy = 1;
+        c.fill = GridBagConstraints.BOTH;
+        background.add(mbCanvas, c);
+
+        //Create and add a menu bar with items
+        this.add(new MBMenuBar(), BorderLayout.NORTH);
     }
 }
