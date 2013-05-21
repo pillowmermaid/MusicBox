@@ -1,24 +1,26 @@
 package com.supersring.musicbox;
 
+import java.awt.AWTEvent;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GraphicsConfiguration;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
-import java.awt.event.ActionEvent;
-import javax.swing.AbstractAction;
-import javax.swing.BoxLayout;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
- * Hello world!
- *
+ * Music Box main frame
  */
 public class MBFrame extends JFrame {
+
+    private MBMenuBar myMenuBar;
 
     public MBFrame() throws HeadlessException {
         initFrame();
@@ -55,14 +57,16 @@ public class MBFrame extends JFrame {
 
         //Create and add background
         final JPanel background = new JPanel(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
+        background.setOpaque(false);
+        //TODO: where is the mouse clicking?
+        final GridBagConstraints c = new GridBagConstraints();
         final Dimension bgSize = new Dimension(340, 340);
         background.setPreferredSize(bgSize);
 //        background.setBackground(Color.black);
         this.add(background, BorderLayout.CENTER);
 
         //Create and add a canvas to JPanel
-        MBCanvas mbCanvas = new MBCanvas();
+        final MBCanvas mbCanvas = new MBCanvas();
         mbCanvas.setPreferredSize(bgSize);
         c.gridx = 1;
         c.gridy = 1;
@@ -70,6 +74,11 @@ public class MBFrame extends JFrame {
         background.add(mbCanvas, c);
 
         //Create and add a menu bar with items
-        this.add(new MBMenuBar(), BorderLayout.NORTH);
+        myMenuBar = new MBMenuBar();
+        this.add(myMenuBar, BorderLayout.NORTH);
+    }
+
+    public Color getSelectedColor() {
+        return myMenuBar.getSelectedColor();
     }
 }

@@ -5,26 +5,27 @@ package com.supersring.musicbox;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
-import java.util.Enumeration;
 import javax.swing.AbstractAction;
-import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
-import javax.swing.DefaultButtonModel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JRadioButtonMenuItem;
 
 /**
+ * Music box menu
  *
  * @author Nicholas
  */
 class MBMenuBar extends JMenuBar {
 
-    public Color userSelection = Color.black;
+    private Color colorSelection;
 
     public MBMenuBar() {
         initComponents();
+    }
+
+    public Color getSelectedColor() {
+        return colorSelection;
     }
 
     private void initComponents() {
@@ -46,16 +47,17 @@ class MBMenuBar extends JMenuBar {
         final ButtonGroup bg = new ButtonGroup();
         final JRadioButtonMenuItem blackButton = new JRadioButtonMenuItem(new AbstractAction("Black") {
             public void actionPerformed(ActionEvent e) {
-                userSelection = Color.black;
+                colorSelection = Color.black;
             }
         });
         blackButton.setSelected(true);
+        colorSelection = Color.black;
         color.add(blackButton);
         bg.add(blackButton);
         //--red
         final JRadioButtonMenuItem redButton = new JRadioButtonMenuItem(new AbstractAction("Red") {
             public void actionPerformed(ActionEvent e) {
-                userSelection = Color.red;
+                colorSelection = Color.red;
             }
         });
         color.add(redButton);

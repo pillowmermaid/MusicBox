@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 
 /**
- *
+ * Music box canvas, where objects are drawn
  * @author Nicholas
  */
 class MBCanvas extends JPanel implements MouseListener {
@@ -30,7 +30,7 @@ class MBCanvas extends JPanel implements MouseListener {
     @Override
     public void paint(final Graphics g) {
         super.paint(g);
-        g.setColor(Color.black);
+        g.setColor(((MBFrame)this.getParent().getParent().getParent().getParent().getParent()).getSelectedColor());
         for (int i = 0; i < rectCoords.length; i++) {
             final IntPair intPair = rectCoords[i];
             g.setColor(rectColors[i]);

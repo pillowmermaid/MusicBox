@@ -4,7 +4,7 @@
 package com.supersring.musicbox;
 
 /**
- *
+ * A pair of the same type of object
  * @author Nicholas
  */
 public class Pair<T> {

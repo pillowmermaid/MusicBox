@@ -3,7 +3,10 @@
  */
 package com.supersring.musicbox;
 
-
+/**
+ * A pair of integers
+ * @author Nicholas
+ */
 public class IntPair extends Pair {
 
     int a;
