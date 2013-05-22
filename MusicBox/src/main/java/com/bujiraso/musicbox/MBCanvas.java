@@ -1,8 +1,7 @@
 /*
  * Copyright (C) 2013 Bujiraso
- * This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a
- * copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative
- * Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+ * This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+ * If a copy of the MPL was not distributed with this file, you can obtain one at http://mozilla.org/MPL/2.0/.
  */
 package com.bujiraso.musicbox;
 
